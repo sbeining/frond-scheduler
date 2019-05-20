@@ -1,0 +1,32 @@
+version: '3'
+services:
+    apache:
+        build: .docker/apache
+        ports:
+          - 80:80
+        volumes:
+          - .docker/config/vhosts:/etc/apache2/sites-enabled
+          - .:/var/www/apache2/htdocs
+        depends_on:
+          - php
+
+    db:
+        image: postgres
+        ports:
+          - 5432:5432
+        volumes:
+            - db:/var/lib/postgresql/data
+        environment:
+            POSTGRES_DB: scheduler
+            POSTGRES_USER: scheduler
+            POSTGRES_PASSWORD: scheduler
+
+    php:
+        build: .docker/php
+        volumes:
+          - .:/var/www/apache2/htdocs
+        depends_on:
+          - db
+
+volumes:
+  db:
