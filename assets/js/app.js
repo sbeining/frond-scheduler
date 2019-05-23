@@ -9,6 +9,23 @@
 require('../css/app.css');
 
 // Need jQuery? Install it with "yarn add jquery", then uncomment to require it.
-// const $ = require('jquery');
+const $ = require('jquery');
+require('moment');
+require('fullcalendar');
 
 console.log('Hello Webpack Encore! Edit me in assets/js/app.js');
+
+import '@fullcalendar/core/main.css';
+import '@fullcalendar/daygrid/main.css';
+import { Calendar } from '@fullcalendar/core';
+import dayGridPlugin from '@fullcalendar/daygrid';
+
+document.addEventListener('DOMContentLoaded', function() {
+  var calendarEl = document.getElementById('calendar');
+
+  var calendar = new Calendar(calendarEl, {
+    plugins: [ dayGridPlugin ]
+  });
+
+  calendar.render();
+});
