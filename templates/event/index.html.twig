@@ -24,9 +24,10 @@
                             <a class="btn btn-primary" href="{{ path('event_show', {'id': event.id}) }}">
                                 <i class="fas fa-search"></i>
                             </a>
-                            <a class="btn btn-warning" href="{{ path('event_edit', {'id': event.id}) }}">
+                            <a class="btn btn-warning float-right" href="{{ path('event_edit', {'id': event.id}) }}">
                                 <i class="fas fa-edit"></i>
                             </a>
+                            {{ include('event/_delete_form.html.twig') }}
                         </td>
                     </tr>
                 {% else %}
