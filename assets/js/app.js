@@ -31,7 +31,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
   var calendar = new Calendar(calendarEl, {
     plugins: [ dayGridPlugin, bootstrap ],
-    themeSystem: 'bootstrap'
+    themeSystem: 'bootstrap',
+    events: '/event.json'
   });
 
   calendar.render();

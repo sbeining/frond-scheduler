@@ -19,15 +19,31 @@ class EventController extends AbstractController
     /**
      * @Route(".json", name="event_json", methods={"GET"})
      */
-    public function indexJson(EventRepository $eventRepository): JsonResponse
+    public function indexJson(Request $request, EventRepository $eventRepository): JsonResponse
     {
         $data = [];
 
-        foreach ($eventRepository->findAll() as $event) {
+        $qb = $eventRepository->createQueryBuilder('e');
+
+        if ($request->query->has('start')) {
+            $start = new \DateTime($request->query->get('start'));
+
+            $qb->andWhere('e.start >= :start');
+            $qb->setParameter('start', $start);
+        }
+
+        if ($request->query->has('end')) {
+            $end = new \DateTime($request->query->get('end'));
+
+            $qb->andWhere('e.end < :end');
+            $qb->setParameter('end', $end);
+        }
+
+        foreach ($qb->getQuery()->getResult() as $event) {
             $data[] = [
                 'title' => $event->getTitle(),
-                'start' => $event->getStart(),
-                'end' => $event->getEnd(),
+                'start' => $event->getStart()->format('c'),
+                'end' => $event->getEnd()->format('c'),
             ];
         }
 
