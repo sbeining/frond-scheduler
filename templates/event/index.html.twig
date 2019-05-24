@@ -21,9 +21,6 @@
                         <td>{{ event.start ? event.start|date('Y-m-d H:i:s') : '' }}</td>
                         <td>{{ event.end ? event.end|date('Y-m-d H:i:s') : '' }}</td>
                         <td class="text-right">
-                            <a class="btn btn-primary" href="{{ path('event_show', {'id': event.id}) }}">
-                                <i class="fas fa-search"></i>
-                            </a>
                             <a class="btn btn-warning float-right" href="{{ path('event_edit', {'id': event.id}) }}">
                                 <i class="fas fa-edit"></i>
                             </a>
