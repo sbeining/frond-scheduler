@@ -3,37 +3,44 @@
 {% block title %}Event index{% endblock %}
 
 {% block body %}
-    <h1>Event index</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Start</th>
-                <th>End</th>
-                <th>Title</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for event in events %}
-            <tr>
-                <td>{{ event.id }}</td>
-                <td>{{ event.start ? event.start|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ event.end ? event.end|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ event.title }}</td>
-                <td>
-                    <a href="{{ path('event_show', {'id': event.id}) }}">show</a>
-                    <a href="{{ path('event_edit', {'id': event.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="5">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('event_new') }}">Create new</a>
+    <div class="container">
+        <div class="table-responsive">
+            <table class="table table-bordred table-striped">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Start</th>
+                        <th>End</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for event in events %}
+                    <tr>
+                        <td>{{ event.title }}</td>
+                        <td>{{ event.start ? event.start|date('Y-m-d H:i:s') : '' }}</td>
+                        <td>{{ event.end ? event.end|date('Y-m-d H:i:s') : '' }}</td>
+                        <td class="text-right">
+                            <a class="btn btn-primary" href="{{ path('event_show', {'id': event.id}) }}">
+                                <i class="fas fa-search"></i>
+                            </a>
+                            <a class="btn btn-warning" href="{{ path('event_edit', {'id': event.id}) }}">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="4">no records found</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            <div class="text-center">
+                <a class="btn btn-success" href="{{ path('event_new') }}">
+                    <i class="fas fa-plus"></i> Schedule event
+                </a>
+            </div>
+        </div>
+    </div>
 {% endblock %}
