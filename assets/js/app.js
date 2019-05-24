@@ -29,11 +29,14 @@ import bootstrap from '@fullcalendar/bootstrap';
 document.addEventListener('DOMContentLoaded', function() {
   var calendarEl = document.getElementById('calendar');
 
-  var calendar = new Calendar(calendarEl, {
-    plugins: [ dayGridPlugin, bootstrap ],
-    themeSystem: 'bootstrap',
-    events: '/event.json'
-  });
+  if (calendarEl) {
+    var calendar = new Calendar(calendarEl, {
+      plugins: [ dayGridPlugin, bootstrap ],
+      themeSystem: 'bootstrap',
+      events: '/event.json'
+    });
 
-  calendar.render();
+    calendar.render();
+  }
+
 });
