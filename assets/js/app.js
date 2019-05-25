@@ -33,6 +33,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
   if (calendarEl) {
     var calendar = new Calendar(calendarEl, {
+      locale: locale,
+      firstDay: 1,
       plugins: [ dayGridPlugin, bootstrap ],
       themeSystem: 'bootstrap',
       events: '/event.json'
