@@ -14,7 +14,7 @@ require('@fortawesome/fontawesome-free/css/all.min.css');
 const $ = require('jquery');
 require('bootstrap');
 
-require('moment');
+const moment = require('moment');
 require('fullcalendar');
 
 console.log('Hello Webpack Encore! Edit me in assets/js/app.js');
@@ -25,6 +25,8 @@ import '@fullcalendar/bootstrap/main.css';
 import { Calendar } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import bootstrap from '@fullcalendar/bootstrap';
+const locale = window.navigator.userLanguage || window.navigator.language;
+moment.locale(locale);
 
 document.addEventListener('DOMContentLoaded', function() {
   var calendarEl = document.getElementById('calendar');
@@ -39,4 +41,9 @@ document.addEventListener('DOMContentLoaded', function() {
     calendar.render();
   }
 
+  $('.to-local-datetime').each(function() {
+    const content = $(this).text();
+    const converted = moment(content).format('LLL');
+    $(this).text(converted);
+  })
 });

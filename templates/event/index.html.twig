@@ -18,8 +18,8 @@
                 {% for event in events %}
                     <tr>
                         <td>{{ event.title }}</td>
-                        <td>{{ event.start ? event.start|date('Y-m-d H:i:s') : '' }}</td>
-                        <td>{{ event.end ? event.end|date('Y-m-d H:i:s') : '' }}</td>
+                        <td class="to-local-datetime">{{ event.start|date('c') }}</td>
+                        <td class="to-local-datetime">{{ event.end|date('c') }}</td>
                         <td class="text-right">
                             <a class="btn btn-warning float-right" href="{{ path('event_edit', {'id': event.id}) }}">
                                 <i class="fas fa-edit"></i>
