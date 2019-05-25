@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
@@ -39,6 +40,16 @@ class User implements UserInterface
      * hashed
      */
     private $plainPassword;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Event", mappedBy="user")
+     */
+    private $events;
+
+    public function __construct()
+    {
+        $this->events = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -106,6 +117,11 @@ class User implements UserInterface
         $this->plainPassword = $password;
 
         return $this;
+    }
+
+    public function getEvents(): ArrayCollection
+    {
+        return $this->events;
     }
 
     /**

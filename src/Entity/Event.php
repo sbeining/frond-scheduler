@@ -31,6 +31,12 @@ class Event
      */
     private $title;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="events")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     */
+    private $user;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -68,6 +74,18 @@ class Event
     public function setTitle(string $title): self
     {
         $this->title = $title;
+
+        return $this;
+    }
+
+    public function getUser(): User
+    {
+        return $this->user;
+    }
+
+    public function setUser(User $user): self
+    {
+        $this->user= $user;
 
         return $this;
     }
