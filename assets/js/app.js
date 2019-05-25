@@ -21,9 +21,11 @@ console.log('Hello Webpack Encore! Edit me in assets/js/app.js');
 
 import '@fullcalendar/core/main.css';
 import '@fullcalendar/daygrid/main.css';
+import '@fullcalendar/timegrid/main.css';
 import '@fullcalendar/bootstrap/main.css';
 import { Calendar } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
+import timeGridPlugin from '@fullcalendar/timegrid';
 import bootstrap from '@fullcalendar/bootstrap';
 const locale = window.navigator.userLanguage || window.navigator.language;
 moment.locale(locale);
@@ -35,8 +37,15 @@ document.addEventListener('DOMContentLoaded', function() {
     var calendar = new Calendar(calendarEl, {
       locale: locale,
       firstDay: 1,
-      plugins: [ dayGridPlugin, bootstrap ],
+      plugins: [ dayGridPlugin, timeGridPlugin, bootstrap ],
+      defaultView: 'timeGridWeek',
+      allDaySlot: false,
+      minTime: '10:00:00',
       themeSystem: 'bootstrap',
+      header: {
+        left: 'title',
+        right: 'timeGridWeek,dayGridMonth prev,next'
+      },
       events: '/event.json'
     });
 

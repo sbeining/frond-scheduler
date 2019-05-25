@@ -640,10 +640,17 @@
   resolved "https://registry.yarnpkg.com/@fullcalendar/core/-/core-4.1.0.tgz#9f09c4c35e308a81a97e4d62c05f64548d0e5666"
   integrity sha512-pyBRbNnppQH5iPnhENrNIkvOxjPdR46o7HMuSx3M+OlGVZLygbb97sKg5XuJx6Bn3hFP0EJXKmA9/GCfeP9PPQ==
 
-"@fullcalendar/daygrid@^4.1.0":
+"@fullcalendar/daygrid@^4.1.0", "@fullcalendar/daygrid@~4.1.0":
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/@fullcalendar/daygrid/-/daygrid-4.1.0.tgz#058b02585d17a63f448e2ab42f65db7bacca2296"
   integrity sha512-y2w+js+cr0SFC3f88QIS91V8LeZ5TEG/W6hX+CcokP+KTZdepW0uCjPzf9QwVE0LM904tZ2kjCe209hZGfSNGg==
+
+"@fullcalendar/timegrid@^4.1.0":
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/@fullcalendar/timegrid/-/timegrid-4.1.0.tgz#6e825f0cab79d81875a73fbb563cc69844ff0ecf"
+  integrity sha512-UGAXN5qHnL8mDMr/+Zfrn7jh4GMO2WpOCLTUB8GmiSTbewVD+iHjhJuJKhkdrL8CEinEjHidsux3qXKSrFreYQ==
+  dependencies:
+    "@fullcalendar/daygrid" "~4.1.0"
 
 "@symfony/webpack-encore@^0.27.0":
   version "0.27.0"
