@@ -17,12 +17,12 @@ class Event
     private $id;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetimetz")
      */
     private $start;
 
     /**
-     * @ORM\Column(name="`end`", type="datetime")
+     * @ORM\Column(name="`end`", type="datetimetz")
      */
     private $end;
 
