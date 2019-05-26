@@ -20,6 +20,7 @@ global.moment = moment;
 const locale = window.navigator.userLanguage || window.navigator.language;
 moment.locale(locale);
 require('fullcalendar');
+require('tempusdominus-bootstrap-4');
 
 console.log('Hello Webpack Encore! Edit me in assets/js/app.js');
 
@@ -31,6 +32,7 @@ import { Calendar } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import bootstrap from '@fullcalendar/bootstrap';
+import 'tempusdominus-bootstrap-4/build/css/tempusdominus-bootstrap-4.css';
 
 document.addEventListener('DOMContentLoaded', function() {
   var calendarEl = document.getElementById('calendar');

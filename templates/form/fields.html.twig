@@ -1,0 +1,22 @@
+{% block td_datetime_widget %}
+    {% spaceless %}
+      <div style="position: relative">
+        {{ form_widget(form.iso) }}
+        {{ form_widget(form.picker, {'attr': {'class': 'datetimepicker-input', 'data-toggle': 'datetimepicker', 'data-target': '#' ~ id ~ '_picker'}}) }}
+      </div>
+    {% endspaceless %}
+    <script>
+      $(function() {
+        $('#{{ id }}_picker').datetimepicker({
+          sideBySide: true,
+          date: '{{ value.iso }}'
+        });
+
+        $('#{{ id }}_picker').on('change.datetimepicker', function(e) {
+          if (e.date) {
+            $('#{{ id }}_iso').val(e.date.format());
+          }
+        })
+      })
+    </script>
+{% endblock %}
