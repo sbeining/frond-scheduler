@@ -15,6 +15,8 @@ const $ = require('jquery');
 require('bootstrap');
 
 const moment = require('moment');
+const locale = window.navigator.userLanguage || window.navigator.language;
+moment.locale(locale);
 require('fullcalendar');
 
 console.log('Hello Webpack Encore! Edit me in assets/js/app.js');
@@ -27,8 +29,6 @@ import { Calendar } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import bootstrap from '@fullcalendar/bootstrap';
-const locale = window.navigator.userLanguage || window.navigator.language;
-moment.locale(locale);
 
 document.addEventListener('DOMContentLoaded', function() {
   var calendarEl = document.getElementById('calendar');
