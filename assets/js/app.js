@@ -12,9 +12,11 @@ require('@fortawesome/fontawesome-free/css/all.min.css');
 
 // Need jQuery? Install it with "yarn add jquery", then uncomment to require it.
 const $ = require('jquery');
+global.$ = $;
 require('bootstrap');
 
 const moment = require('moment');
+global.moment = moment;
 const locale = window.navigator.userLanguage || window.navigator.language;
 moment.locale(locale);
 require('fullcalendar');
