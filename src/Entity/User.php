@@ -42,6 +42,11 @@ class User implements UserInterface
     private $plainPassword;
 
     /**
+     * @ORM\Column(type="string", length=7, options={"default"="#3788d8"})
+     */
+    private $color = '#3788d8';
+
+    /**
      * @ORM\OneToMany(targetEntity="Event", mappedBy="user")
      */
     private $events;
@@ -115,6 +120,18 @@ class User implements UserInterface
     public function setPlainPassword(string $password): self
     {
         $this->plainPassword = $password;
+
+        return $this;
+    }
+
+    public function getColor(): ?string
+    {
+        return (string) $this->color;
+    }
+
+    public function setColor(string $color): self
+    {
+        $this->color = $color;
 
         return $this;
     }
