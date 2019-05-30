@@ -1,4 +1,45 @@
+<ul class="nav nav-tabs nav-fill" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#profile_form" role="tab" aria-controls="profile_form" aria-selected="true">
+            <i class="fas fa-user"></i>
+            Profile
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="social-tab" data-toggle="tab" href="#social_form" role="tab" aria-controls="social_form" aria-selected="false">
+            <i class="far fa-comment-alt"></i>
+            Social
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="login-tab" data-toggle="tab" href="#login_form" role="tab" aria-controls="login_form" aria-selected="false">
+            <i class="fas fa-key"></i>
+            Login
+        </a>
+    </li>
+</ul>
+
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn btn-primary float-right">Save</button>
+
+<div class="tab-content">
+    <div class="tab-pane fade show active" id="profile_form" role="tabpanel" aria-labelledby="profile-tab">
+        {{ form_row(form.twitch) }}
+        {{ form_row(form.color) }}
+        {{ form_row(form.file) }}
+        <img height="50" src="data:image/png;base64, {{ user.avatarBase64 }}" />
+    </div>
+    <div class="tab-pane fade" id="social_form" role="tabpanel" aria-labelledby="socal-tab">
+        {{ form_row(form.youtube) }}
+        {{ form_row(form.twitter) }}
+        {{ form_row(form.instagram) }}
+    </div>
+    <div class="tab-pane fade" id="login_form" role="tabpanel" aria-labelledby="login-tab">
+        {{ form_row(form.username) }}
+        {{ form_row(form.plainPassword) }}
+    </div>
+    {{ form_rest(form) }}
+</div>
+
+<button class="btn btn-primary float-right">Save</button>
+
 {{ form_end(form) }}
