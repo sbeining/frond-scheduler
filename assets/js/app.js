@@ -61,4 +61,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const converted = moment(content).format('LLL');
     $(this).text(converted);
   })
+
+  $('.profile_card.compact').click(function() {
+    $(this).hide()
+    $(this).next().show()
+  })
+
+  $('.profile_card.full').click(function() {
+    $(this).hide()
+    $(this).prev().show()
+  })
 });

@@ -35,3 +35,62 @@ body {
 #calendar .btn-primary:focus {
   box-shadow: none;
 }
+
+#fronds_profile_cards {
+  width: 400px;
+}
+
+.profile_card {
+  text-align: center;
+  max-width: 400px;
+  padding: 10px 20px;
+  background-color: #ffffff;
+  border: 1px solid #aaaaaa;
+  -webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
+  box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
+
+  text-align: left;
+}
+
+.profile_card.compact {
+  height: 72px;
+}
+
+.profile_card .name_container {
+  float: left;
+  margin-left: 30px;
+  padding-top: 5px;
+}
+
+.profile_card .avatar {
+  float: left;
+  border-radius: 50%;
+  vertical-align: middle;
+  width: 50px;
+  height: 50px;
+  background: #ffffff;
+  border: 1px solid #aaaaaa;
+}
+
+.profile_card .name {
+  font-weight: bold;
+  font-size: 110%;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 0 rgba(0,0,0,0.5);
+}
+
+.profile_card .title {
+  font-size: 80%;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.profile_card .about {
+  padding-top: 10px;
+  font-size: 80%;
+  text-align: justify;
+}
+
+.profile_card .socials {
+  text-align: right;
+  font-size: 200%;
+}

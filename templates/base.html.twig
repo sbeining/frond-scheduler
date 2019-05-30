@@ -20,6 +20,12 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
+                        <a class="nav-link" data-toggle="collapse" data-target="#fronds_profile_cards">The Fronds</a>
+                        <div class="dropdown">
+                            {{ render(controller('App\\Controller\\UserListController::index')) }}
+                        </div>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="{{ path('app_homepage') }}">Calendar</a>
                     </li>
                     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
