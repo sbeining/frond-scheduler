@@ -82,6 +82,21 @@ class User implements UserInterface, \Serializable
      */
     private $instagram;
 
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $about;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $title;
+
+    /**
+     * @ORM\Column(name="display_name", type="string", length=255)
+     */
+    private $displayName;
+
     public function __construct()
     {
         $this->events = new ArrayCollection();
@@ -293,6 +308,42 @@ class User implements UserInterface, \Serializable
     public function setInstagram(?string $instagram): self
     {
         $this->instagram = $instagram;
+
+        return $this;
+    }
+
+    public function getAbout(): ?string
+    {
+        return $this->about;
+    }
+
+    public function setAbout(?string $about): self
+    {
+        $this->about = $about;
+
+        return $this;
+    }
+
+    public function getTitle(): ?string
+    {
+        return $this->title;
+    }
+
+    public function setTitle(?string $title): self
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    public function getDisplayName(): ?string
+    {
+        return $this->displayName;
+    }
+
+    public function setDisplayName(string $displayName): self
+    {
+        $this->displayName = $displayName;
 
         return $this;
     }

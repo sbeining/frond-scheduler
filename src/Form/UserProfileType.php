@@ -8,6 +8,7 @@ use Symfony\Component\Form\Extension\Core\Type\ColorType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -18,6 +19,9 @@ class UserProfileType extends AbstractType
     {
         $builder
             ->add('username')
+            ->add('displayName')
+            ->add('title')
+            ->add('about', TextareaType::class)
             ->add('color', ColorType::class)
             ->add('plainPassword', RepeatedType::class, [
                 'type' => PasswordType::class,
