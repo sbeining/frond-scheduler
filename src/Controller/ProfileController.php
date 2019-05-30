@@ -24,6 +24,10 @@ class ProfileController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            if ($user->getFile()) {
+                $user->setAvatar(file_get_contents($user->getFile()->getRealPath()));
+            }
+
             if ($user->getPlainPassword()) {
                 $password = $passwordEncoder->encodePassword($user, $user->getPlainPassword());
                 $user->setPassword($password);

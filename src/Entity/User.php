@@ -5,12 +5,13 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  * @ORM\Table("`user`")
  */
-class User implements UserInterface
+class User implements UserInterface, \Serializable
 {
     /**
      * @ORM\Id()
@@ -47,9 +48,19 @@ class User implements UserInterface
     private $color = '#3788d8';
 
     /**
+     * @ORM\Column(type="blob", nullable=true)
+     */
+    private $avatar;
+
+    /**
      * @ORM\OneToMany(targetEntity="Event", mappedBy="user")
      */
     private $events;
+
+    /**
+     * @var UploadedFile
+     */
+    private $file;
 
     public function __construct()
     {
@@ -136,9 +147,45 @@ class User implements UserInterface
         return $this;
     }
 
+    public function getAvatar()
+    {
+        return $this->avatar;
+    }
+
+    public function getAvatarBase64()
+    {
+        if ($this->avatar === null) {
+            return null;
+        }
+
+        rewind($this->avatar);
+
+        return base64_encode(stream_get_contents($this->avatar));
+    }
+
+    public function setAvatar($avatar): self
+    {
+        $this->avatar = $avatar;
+
+        return $this;
+    }
+
     public function getEvents(): ArrayCollection
     {
         return $this->events;
+    }
+
+
+    public function getFile(): ?UploadedFile
+    {
+        return $this->file;
+    }
+
+    public function setFile(UploadedFile $file): self
+    {
+        $this->file = $file;
+
+        return $this;
     }
 
     /**
@@ -156,5 +203,29 @@ class User implements UserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    /**
+     * @see Serializable
+     */
+    public function serialize()
+    {
+        return serialize(array(
+            $this->id,
+            $this->username,
+            $this->password,
+        ));
+    }
+
+    /**
+     * @see Serializable
+     */
+    public function unserialize($serialized)
+    {
+        list (
+            $this->id,
+            $this->username,
+            $this->password,
+        ) = unserialize($serialized);
     }
 }
