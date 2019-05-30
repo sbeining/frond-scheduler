@@ -26,7 +26,7 @@ class UserProfileType extends AbstractType
                 'first_options'  => ['label' => 'Password', 'attr' => ['autocomplete' => 'disabled']],
                 'second_options' => ['label' => 'Repeat Password'],
             ])
-            ->add('file', FileType::class, ['label' => 'Avatar', ])
+            ->add('file', FileType::class, ['label' => 'Avatar', 'required' => false])
             ->add('twitch', UrlType::class, ['required' => false])
             ->add('youtube', UrlType::class, ['required' => false])
             ->add('twitter', UrlType::class, ['required' => false])
