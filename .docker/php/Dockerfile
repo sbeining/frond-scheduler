@@ -11,6 +11,9 @@ RUN apt-get update \
     unzip \
     libpq-dev
 
+RUN pecl install xdebug-2.6.0beta1
+RUN docker-php-ext-enable xdebug
+
 RUN docker-php-ext-install pdo pdo_pgsql
 COPY php.ini /etc/php/7.2.3/php.ini
 COPY php-fpm-pool.conf /etc/php/7.2.3/pool.d/www.conf
