@@ -94,3 +94,30 @@ body {
   text-align: right;
   font-size: 200%;
 }
+
+.logo {
+  width: 100%;
+}
+
+.portrait {
+  margin: 0 10px 10px 10px;
+  box-shadow: 5px 5px 5px #aaaaaa;
+}
+
+.desciption {
+  padding-top: 5px;
+}
+
+.portrait img {
+  width: 100%;
+  height: 100%;
+}
+
+.portrait .plaque {
+  font-size: 1.5em;
+  font-family: monospace;
+  text-transform: uppercase;
+  text-align: center;
+  background-color: #9CBE16;
+  color: #2F622D;
+}

@@ -6,16 +6,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-/**
- * @Route("/calendar")
- */
-class CalendarController extends AbstractController
+class HomepageController extends AbstractController
 {
     /**
-     * @Route("/", name="calendar_index")
+     * @Route("/", name="app_homepage")
      */
     public function index(): Response
     {
-        return $this->render('calendar/index.html.twig');
+        return $this->render('homepage/index.html.twig');
     }
 }
