@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
       plugins: [ dayGridPlugin, timeGridPlugin, bootstrap ],
       defaultView: 'timeGridWeek',
       allDaySlot: false,
-      minTime: '10:00:00',
+      scrollTime: '10:00:00',
       themeSystem: 'bootstrap',
       header: {
         left: 'title',
