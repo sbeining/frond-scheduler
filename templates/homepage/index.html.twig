@@ -3,10 +3,22 @@
 {% block title %}Homepage{% endblock %}
 
 {% block body %}
-    <div class="container">
-      <h1>Welcome to the Fronds!</h1>
-      <div class="row">
-        <div class="col-8">
+    <div id="pagepiling">
+
+      <div class="section" id="section1">
+        <img class="logo" src="build/images/fronds_drop.png" alt="fronds" />
+
+        <div class="headlines">
+          <h1>Welcome to fronds.tv</h1>
+          <h2>The Home of the Fronds</h2>
+        </div>
+      </div>
+
+
+      <div class="section" id="section2">
+        <div class="text-container">
+          <h1>Welcome to the Fronds!</h1>
+
           <p>
             The fronds are a collective of European streamers consisting of
             WhoaMattBerry, Keldamist, bretmwxyz & Aiyekara. Established in 2018
@@ -28,87 +40,48 @@
             </blockquote>
           </p>
         </div>
-        <div class="col">
-          <img class="logo" src="build/images/fronds.png" alt="The Fronds" />
-        </div>
-
       </div>
 
-      <h2>The Fronds Cinematic Universe</h2>
+      <div class="section pp-scrollable" id="section3">
+        <div class="text-container">
+          <h1>The Fronds Cinematic Universe</h1>
 
-      <div class="row">
-        <div class="col-3">
           <div class="portrait">
-            <div class="plaque">WhoaMattBerry</div>
             <img src="{{ render(controller('App\\Controller\\UserListController::avatarSrcByName', {username: 'whoamattberry'})) }}" alt="WhoaMattBerry"/>
           </div>
-        </div>
-        <div class="col-6">
-          <p class="desciption">
+          <p class="desciption text-right">
             The founding member of the Fronds Cinematic Universe is WhoaMattBerry,
             who streams a variety of Pokémon Challenge Runs with other special
             surprises peppered in there to keep it fresh.
           </p>
-        </div>
-      </div>
 
-      <div class="row">
-        <div class="col-3">
-          <div class="portrait">
-            <div class="plaque">Keldamist</div>
-            <img src="{{ render(controller('App\\Controller\\UserListController::avatarSrcByName', {username: 'keldamist'})) }}" alt="Keldamist"/>
-          </div>
-        </div>
-        <div class="col-6">
-          <p class="desciption">
+          <p class="desciption text-left">
             Keldamist streams a variety of Dark Souls and Monster Hunter Challenge
             runs. Basically, if there’s huge swords and huger bosses, she’ll be
             there.
           </p>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-3">
           <div class="portrait">
-            <div class="plaque">bretmwxyz</div>
+            <img src="{{ render(controller('App\\Controller\\UserListController::avatarSrcByName', {username: 'keldamist'})) }}" alt="Keldamist"/>
+          </div>
+
+          <div class="portrait">
             <img src="{{ render(controller('App\\Controller\\UserListController::avatarSrcByName', {username: 'bretmwxyz'})) }}" alt="bretmwxyz"/>
           </div>
-        </div>
-        <div class="col-6">
-          <p class="desciption">
+          <p class="desciption text-right">
             bretmwxyz streams all sorts of things from Pokémon to Batman, and is
             often joined by their partner Zac (detectiveberry). The two of them
             play a variety of mystery games together, amongst other things
           </p>
-        </div>
-        <div class="col-3">
-          <div class="portrait">
-            <div class="plaque">Zac</div>
-            <img src="{{ render(controller('App\\Controller\\UserListController::avatarSrcByName', {username: 'detectiveberry'})) }}" alt="Zac"/>
-          </div>
-        </div>
-      </div>
 
-      <div class="row">
-        <div class="col-3">
-          <div class="portrait">
-            <div class="plaque">Aiyekara</div>
-            <img src="{{ render(controller('App\\Controller\\UserListController::avatarSrcByName', {username: 'aiyekara'})) }}" alt="Aiyekara"/>
-          </div>
-        </div>
-        <div class="col-6">
-          <p class="desciption">
+          <p class="desciption text-left">
             Aiyekara is a fan of the shorter, calmer, more artistic indie games.
             With exceptions, of course. Aiyekara is also our resident technomancer,
             who built this website and our bot: ai_yekara
           </p>
-        </div>
-        <div class="col-3">
           <div class="portrait">
-            <div class="plaque">AI_Yekara</div>
-            <img src="build/images/portrait_dummy_right.png" alt="AI_Yekara"/>
+            <img src="{{ render(controller('App\\Controller\\UserListController::avatarSrcByName', {username: 'aiyekara'})) }}" alt="Aiyekara"/>
           </div>
+
         </div>
       </div>
     </div>

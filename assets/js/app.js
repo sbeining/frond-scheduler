@@ -34,6 +34,9 @@ import timeGridPlugin from '@fullcalendar/timegrid';
 import bootstrap from '@fullcalendar/bootstrap';
 import 'tempusdominus-bootstrap-4/build/css/tempusdominus-bootstrap-4.css';
 
+const pagepiling = require('pagepiling.js');
+import 'pagepiling.js/dist/jquery.pagepiling.css';
+
 document.addEventListener('DOMContentLoaded', function() {
   var calendarEl = document.getElementById('calendar');
 
@@ -71,4 +74,10 @@ document.addEventListener('DOMContentLoaded', function() {
     $(this).hide()
     $(this).prev().show()
   })
+
+
+  $('#pagepiling').pagepiling({
+    css3: false,
+    verticalCentered: false
+  });
 });
