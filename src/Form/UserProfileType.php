@@ -27,7 +27,7 @@ class UserProfileType extends AbstractType
                 'type' => PasswordType::class,
                 'invalid_message' => 'The password fields must match.',
                 'required' => false,
-                'first_options'  => ['label' => 'Password', 'attr' => ['autocomplete' => 'disabled']],
+                'first_options'  => ['label' => 'Password', 'attr' => ['autocomplete' => 'new-password']],
                 'second_options' => ['label' => 'Repeat Password'],
             ])
             ->add('file', FileType::class, ['label' => 'Avatar', 'required' => false])
