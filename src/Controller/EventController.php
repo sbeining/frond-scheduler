@@ -57,7 +57,7 @@ class EventController extends AbstractController
     public function index(EventRepository $eventRepository): Response
     {
         return $this->render('event/index.html.twig', [
-            'events' => $eventRepository->findByUser($this->getUser(), ['start' => 'asc']),
+            'events' => $eventRepository->findFutureByUser($this->getUser(), ['start' => 'asc']),
         ]);
     }
 

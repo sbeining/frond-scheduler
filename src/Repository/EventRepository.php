@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Event;
+use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
@@ -17,6 +18,21 @@ class EventRepository extends ServiceEntityRepository
     public function __construct(RegistryInterface $registry)
     {
         parent::__construct($registry, Event::class);
+    }
+
+    public function findFutureByUser(User $user, array $orderBy = [])
+    {
+        $qb = $this->createQueryBuilder('e')
+            ->andWhere('e.start >= :now')
+            ->setParameter('now', new \DateTime())
+            ->andWhere('e.user = :user')
+            ->setParameter('user', $user);
+
+        foreach ($orderBy as $field => $direction) {
+            $qb->orderBy("e.{$field}", $direction);
+        }
+
+        return $qb->getQuery()->getResult();
     }
 
     // /**
