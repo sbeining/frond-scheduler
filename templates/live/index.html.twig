@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <h1><a href="https://twitch.tv/{{ stream.user_name }}">{{ stream.user_name }}</a> is currently online</h1>
+        <h2>{{ stream.title }}</h2>
+
+        <!-- Add a placeholder for the Twitch embed -->
+        <div id="twitch-embed"></div>
+
+        <!-- Load the Twitch embed script -->
+        <script src="https://embed.twitch.tv/embed/v1.js"></script>
+
+        <!--
+          Create a Twitch.Embed object that will render
+          within the "twitch-embed" root element.
+        -->
+        <script type="text/javascript">
+            var embed = new Twitch.Embed("twitch-embed", {
+                channel: "{{ stream.user_name }}",
+                layout: "video",
+                theme: "dark",
+                allow_fullscreen: false,
+                width: 640,
+                height: 360,
+            });
+
+            embed.addEventListener(Twitch.Embed.VIDEO_READY, () => {
+                var player = embed.getPlayer();
+                player.play();
+            });
+        </script>
+    </div>
+
+    <div class="container">
+        <h3>Do you want to check out when we are streaming next?</h3>
+        Check out our <a href="{{ url('calendar_index') }}">Schedule</a>
+    </div>
+{% endblock %}
