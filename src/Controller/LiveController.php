@@ -24,7 +24,7 @@ class LiveController extends AbstractController
             'bretmwxyz',
             'aiyekara',
             'vinikyu',
-            'madagascarfan2005',
+            'itsdoulegg',
         ];
 
         $clientId = 'q6batx0epp608isickayubi39itsckt';
