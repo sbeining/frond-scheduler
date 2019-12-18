@@ -4,6 +4,7 @@ services:
         build: .docker/apache
         ports:
           - 80:80
+          - 443:443
         volumes:
           - .docker/config/vhosts:/etc/apache2/sites-enabled
           - .:/var/www/apache2/htdocs
