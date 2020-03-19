@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Category index{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="table-responsive">
+            <table class="table table-bordred table-striped">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for category in categorys %}
+                    <tr>
+                        <td>{{ category.title }}</td>
+                        <td class="text-right">
+                            <a class="btn btn-warning float-right" href="{{ path('category_edit', {'id': category.id}) }}">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            {% if category.id != 1 %}
+                              {{ include('category/_delete_form.html.twig') }}
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="4">no categories found</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            <div class="text-center">
+                <a class="btn btn-success" href="{{ path('category_new') }}">
+                    <i class="fas fa-plus"></i> New category
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
