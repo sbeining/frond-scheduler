@@ -107,4 +107,12 @@ class Event
 
         return $this;
     }
+
+    public function getColor() {
+        if ($this->getCategory()->getColor()) {
+            return $this->getCategory()->getColor();
+        }
+
+        return $this->getUser()->getColor();
+    }
 }
