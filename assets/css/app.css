@@ -129,7 +129,7 @@ blockquote footer {
   background-image: url('/build/images/Pika.png')
 }
 
-#calendar {
+#calendar, #legend {
   max-width: 900px;
   margin: 70px auto;
   padding: 5px;
@@ -137,6 +137,23 @@ blockquote footer {
   border-radius: 10px;
 
   box-shadow: 5px 5px 10px #333;
+}
+
+#calendar {
+  margin-top: 0;
+}
+
+#legend {
+  margin-bottom: 5px;
+}
+
+#legend .legendEntry {
+  color: #fff;
+  display: inline-block;
+  border-radius: 10px;
+  text-align: center;
+  padding: 0 0.5em;
+  margin-right: 0.5em;
 }
 
 #calendar .btn-primary {

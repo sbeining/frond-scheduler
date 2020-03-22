@@ -42,6 +42,16 @@ class Category
         return $this->title;
     }
 
+    public function toArray(): array
+    {
+        return [
+            'id' => $this->id,
+            'title' => $this->title,
+            'description' => $this->description,
+            'color' => $this->color,
+        ];
+    }
+
     public function getId(): ?int
     {
         return $this->id;

@@ -53,7 +53,24 @@ document.addEventListener('DOMContentLoaded', function() {
         left: 'title',
         right: 'timeGridWeek,dayGridMonth prev,next'
       },
-      events: '/event.json'
+      events: '/event.json',
+      eventRender: function(info) {
+        const category = info.event._def.extendedProps.category
+        const color = info.event.backgroundColor
+        const selector = `#legend div[data-category-id=${category.id}]`
+
+        if ($(selector).length === 0) {
+          const categoryDiv = $('<div/>')
+
+          categoryDiv.addClass('legendEntry')
+          categoryDiv.attr('data-category-id', category.id)
+          categoryDiv.attr('title', category.description)
+          categoryDiv.html(category.title)
+          categoryDiv.attr('style', `background-color:${color}`)
+
+          $('#legend').append(categoryDiv)
+        }
+      }
     });
 
     calendar.render();
