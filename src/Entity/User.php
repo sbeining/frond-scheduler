@@ -102,6 +102,16 @@ class User implements UserInterface, \Serializable
         $this->events = new ArrayCollection();
     }
 
+    public function toArray(): array
+    {
+        return [
+            'id' => $this->getId(),
+            'username' => $this->getUsername(),
+            'twitch' => $this->getTwitch(),
+            'displayName' => $this->getDisplayName(),
+        ];
+    }
+
     public function getId(): ?int
     {
         return $this->id;

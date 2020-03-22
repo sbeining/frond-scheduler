@@ -46,6 +46,7 @@ class EventController extends AbstractController
                 'start' => $event->getStart()->format('c'),
                 'end' => $event->getEnd()->format('c'),
                 'category' => $event->getCategory()->toArray(),
+                'creator' => $event->getUser()->toArray(),
                 'color' => $event->getColor(),
             ];
         }

@@ -59,13 +59,27 @@ document.addEventListener('DOMContentLoaded', function() {
         const color = info.event.backgroundColor
         const selector = `#legend div[data-category-id=${category.id}]`
 
-        if ($(selector).length === 0) {
-          const categoryDiv = $('<div/>')
+        if (category.id !== 1 && $(selector).length === 0) {
+          let categoryDiv = $('<div/>')
 
           categoryDiv.addClass('legendEntry')
           categoryDiv.attr('data-category-id', category.id)
           categoryDiv.attr('title', category.description)
           categoryDiv.html(category.title)
+          categoryDiv.attr('style', `background-color:${color}`)
+
+          $('#legend').append(categoryDiv)
+        }
+
+        const creator = info.event._def.extendedProps.creator
+        const streamSelector = `#legend div[data-creator=${creator.username}]`
+
+        if (category.id === 1 && $(streamSelector).length === 0) {
+          let categoryDiv = $('<div/>')
+
+          categoryDiv.addClass('legendEntry')
+          categoryDiv.attr('data-creator', creator.username)
+          categoryDiv.html(`${creator.displayName} stream`)
           categoryDiv.attr('style', `background-color:${color}`)
 
           $('#legend').append(categoryDiv)
