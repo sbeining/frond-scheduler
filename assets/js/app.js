@@ -84,6 +84,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
           $('#legend').append(categoryDiv)
         }
+      },
+      datesRender: function(info) {
+        $('#legend').empty()
       }
     });
 
