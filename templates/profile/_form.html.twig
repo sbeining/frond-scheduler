@@ -52,7 +52,11 @@
         {% if user.useBotPlot %}
             <h3>How-to</h3>
             <p>
-                Will soon follow
+                Add
+                <pre>
+                    {{ absolute_url(path('bot_plot_index', { 'urlSecret': user.urlSecret }, false)) }}
+                </pre>
+                as a browser source to your (Streamlabs)OBS
             </p>
         {% endif %}
     </div>
