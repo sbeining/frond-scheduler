@@ -1,0 +1,181 @@
+.pokedex {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+
+  position: absolute;
+  font-family: gameovercre;
+}
+
+.pokedex .overlay {
+  background-image: url('../images/pokedex_open_transparent.png');
+  background-size: cover;
+  width: 490px;
+  height: 392px;
+  z-index: 10;
+  left: 0;
+  top: 0;
+}
+
+.pokedex.on .overlay {
+  background-image: url('../images/pokedex_open_transparent_light.png');
+}
+
+.pokedex.closed .overlay {
+  background-image: url('../images/pokedex_closed.png');
+  display: block;
+}
+
+.pokedex.closed div {
+  display: none;
+}
+
+.pokedex div {
+  z-index: 9;
+  position: absolute;
+}
+
+.pokedex .mainscreen {
+  background-color: #ffffff;
+  width: 126px;
+  height: 94px;
+  left: 52px;
+  top: 136px;
+}
+
+.pokedex .mainscreen img {
+  height: 100%;
+  padding-left: 14px;
+}
+
+.pokedex .bottom_left {
+  background-color: #50ae5f;
+  width: 66px;
+  height: 42px;
+  left: 52px;
+  top: 294px;
+}
+
+.pokedex .top_right {
+  background-color: #ffffff;
+  width: 178px;
+  height: 48px;
+  left: 280px;
+  top: 118px;
+  padding: 5px;
+}
+
+.pokedex .bottom_right {
+  background-color: #00312b;
+  width: 76px;
+  height: 28px;
+  background-position: -2px -2px;
+  background-size: cover;
+}
+
+.pokedex .bottom_right.first {
+  left: 280px;
+  top: 312px;
+}
+
+.pokedex .bottom_right.second {
+  left: 386px;
+  top: 312px;
+}
+
+.pokedex.off .mainscreen {
+  background-color: #222222;
+}
+
+.pokedex.off .mainscreen img {
+  display: none;
+}
+
+.pokedex.off .top_right {
+  background-color: #222222;
+  color: #222222;
+}
+
+.pokedex.off .bottom_right {
+  background-image: none !important;
+}
+
+.pokedex .bottom_right.bug {
+  background-image: url('https://veekun.com/dex/media/types/en/bug.png');
+}
+
+.pokedex .bottom_right.dark {
+  background-image: url('https://veekun.com/dex/media/types/en/dark.png');
+}
+
+.pokedex .bottom_right.dragon {
+  background-image: url('https://veekun.com/dex/media/types/en/dragon.png');
+}
+
+.pokedex .bottom_right.electric {
+  background-image: url('https://veekun.com/dex/media/types/en/electric.png');
+}
+
+.pokedex .bottom_right.fairy {
+  background-image: url('https://veekun.com/dex/media/types/en/fairy.png');
+}
+
+.pokedex .bottom_right.fighting {
+  background-image: url('https://veekun.com/dex/media/types/en/fighting.png');
+}
+
+.pokedex .bottom_right.fire {
+  background-image: url('https://veekun.com/dex/media/types/en/fire.png');
+}
+
+.pokedex .bottom_right.flying {
+  background-image: url('https://veekun.com/dex/media/types/en/flying.png');
+}
+
+.pokedex .bottom_right.ghost {
+  background-image: url('https://veekun.com/dex/media/types/en/ghost.png');
+}
+
+.pokedex .bottom_right.grass {
+  background-image: url('https://veekun.com/dex/media/types/en/grass.png');
+}
+
+.pokedex .bottom_right.ground {
+  background-image: url('https://veekun.com/dex/media/types/en/ground.png');
+}
+
+.pokedex .bottom_right.ice {
+  background-image: url('https://veekun.com/dex/media/types/en/ice.png');
+}
+
+.pokedex .bottom_right.normal {
+  background-image: url('https://veekun.com/dex/media/types/en/normal.png');
+}
+
+.pokedex .bottom_right.poison {
+  background-image: url('https://veekun.com/dex/media/types/en/poison.png');
+}
+
+.pokedex .bottom_right.psychic {
+  background-image: url('https://veekun.com/dex/media/types/en/psychic.png');
+}
+
+.pokedex .bottom_right.rock {
+  background-image: url('https://veekun.com/dex/media/types/en/rock.png');
+}
+
+.pokedex .bottom_right.shadow {
+  background-image: url('https://veekun.com/dex/media/types/en/shadow.png');
+}
+
+.pokedex .bottom_right.steel {
+  background-image: url('https://veekun.com/dex/media/types/en/steel.png');
+}
+
+.pokedex .bottom_right.unknown {
+  background-image: url('https://veekun.com/dex/media/types/en/unknown.png');
+}
+
+.pokedex .bottom_right.water {
+  background-image: url('https://veekun.com/dex/media/types/en/water.png');
+}
