@@ -12,6 +12,12 @@
         </a>
     </li>
     <li class="nav-item">
+        <a class="nav-link" id="botplot-tab" data-toggle="tab" href="#botplot_form" role="tab" aria-controls="login_form" aria-selected="false">
+            <i class="fas fa-robot"></i>
+            Bot Plot
+        </a>
+    </li>
+    <li class="nav-item">
         <a class="nav-link" id="login-tab" data-toggle="tab" href="#login_form" role="tab" aria-controls="login_form" aria-selected="false">
             <i class="fas fa-key"></i>
             Login
@@ -35,6 +41,20 @@
         {{ form_row(form.youtube) }}
         {{ form_row(form.twitter) }}
         {{ form_row(form.instagram) }}
+    </div>
+    <div class="tab-pane fade" id="botplot_form" role="tabpanel" aria-labelledby="botplot-tab">
+        <p>
+            With this you will be able to let the chat bot display things on
+            your stream.
+        </p>
+        {{ form_row(form.useBotPlot) }}
+
+        {% if user.useBotPlot %}
+            <h3>How-to</h3>
+            <p>
+                Will soon follow
+            </p>
+        {% endif %}
     </div>
     <div class="tab-pane fade" id="login_form" role="tabpanel" aria-labelledby="login-tab">
         {{ form_row(form.username) }}

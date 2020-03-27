@@ -9,7 +9,10 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
- * @ORM\Table("`user`")
+ * @ORM\Table(
+ *      "`user`",
+ *      uniqueConstraints={@ORM\UniqueConstraint(name="url_secret_idx", columns={"url_secret"})}
+ *  )
  */
 class User implements UserInterface, \Serializable
 {
@@ -96,6 +99,16 @@ class User implements UserInterface, \Serializable
      * @ORM\Column(name="display_name", type="string", length=255)
      */
     private $displayName;
+
+    /**
+     * @ORM\Column(name="use_bot_plot", type="boolean", options={"default": "false"})
+     */
+    private $useBotPlot = false;
+
+    /**
+     * @ORM\Column(name="url_secret", type="string", length=255, nullable=true)
+     */
+    private $urlSecret;
 
     public function __construct()
     {
@@ -354,6 +367,41 @@ class User implements UserInterface, \Serializable
     public function setDisplayName(string $displayName): self
     {
         $this->displayName = $displayName;
+
+        return $this;
+    }
+
+    public function getUseBotPlot(): ?bool
+    {
+        return $this->useBotPlot;
+    }
+
+    public function setUseBotPlot(bool $useBotPlot): self
+    {
+        // If the useBotPlot flag changed...
+        if ($this->useBotPlot !== $useBotPlot) {
+            if ($useBotPlot) {
+                // ... generate a new urlSecret
+                $this->urlSecret = uniqid();
+            } else {
+                // ... remove the urlSecret
+                $this->urlSecret = null;
+            }
+        }
+
+        $this->useBotPlot = $useBotPlot;
+
+        return $this;
+    }
+
+    public function getUrlSecret(): ?string
+    {
+        return $this->urlSecret;
+    }
+
+    public function setUrlSecret(?string $urlSecret): self
+    {
+        $this->urlSecret = $urlSecret;
 
         return $this;
     }

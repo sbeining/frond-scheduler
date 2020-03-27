@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ColorType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
@@ -35,6 +36,7 @@ class UserProfileType extends AbstractType
             ->add('youtube', UrlType::class, ['required' => false])
             ->add('twitter', UrlType::class, ['required' => false])
             ->add('instagram', UrlType::class, ['required' => false])
+            ->add('useBotPlot', CheckboxType::class, ['required' => false])
         ;
     }
 
