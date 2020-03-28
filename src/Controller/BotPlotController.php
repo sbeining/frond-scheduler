@@ -17,7 +17,9 @@ class BotPlotController extends AbstractController
      */
     public function index(User $user): Response
     {
-        return $this->render('bot_plot/index.html.twig');
+        return $this->render('bot_plot/index.html.twig', [
+            'user' => $user,
+        ]);
     }
 }
 

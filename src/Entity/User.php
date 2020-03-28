@@ -299,6 +299,20 @@ class User implements UserInterface, \Serializable
         return $this;
     }
 
+    public function getChannel(): ?string
+    {
+        if ($this->twitch === null) {
+            return null;
+        }
+
+        $matches = [];
+        if (preg_match('|https?://(www.)?twitch\.tv/(\w+)|', $this->twitch, $matches)) {
+            return '#' . $matches[2];
+        }
+
+        return null;
+    }
+
     public function getYoutube(): ?string
     {
         return $this->youtube;

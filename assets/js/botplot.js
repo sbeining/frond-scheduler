@@ -16,6 +16,8 @@ const pokedex = new Pokedex('.pokedex')
 let cooldown = false
 
 socket.onmessage = async function(event) {
+  const channel = $('.options').data('channel')
+
   if (cooldown) {
     console.log('cooldown!')
     return
@@ -24,6 +26,10 @@ socket.onmessage = async function(event) {
   var data = JSON.parse(event.data)
 
   if (!data) {
+    return
+  }
+
+  if (channel != data.channel) {
     return
   }
 
