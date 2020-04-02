@@ -1,6 +1,6 @@
-const objectionSound = new Audio('../sfx/Phoenix - objection.mp3');
-const holdItSound = new Audio('../sfx/Phoenix - Hold it.mp3');
-const takeThatSound = new Audio('../sfx/Phoenix - takethat.mp3');
+const objectionSound = new Audio('/sfx/Phoenix - objection.mp3');
+const holdItSound = new Audio('/sfx/Phoenix - Hold it.mp3');
+const takeThatSound = new Audio('/sfx/Phoenix - takethat.mp3');
 
 async function popupCharacter() {
   await animateCSS('#character', 'bounceInUp')
