@@ -52,12 +52,41 @@
         {% if user.useBotPlot %}
             <h3>How-to</h3>
             <p>
-                Add
-                <pre>
-                    {{ absolute_url(path('bot_plot_index', { 'urlSecret': user.urlSecret }, false)) }}
-                </pre>
-                as a browser source to your (Streamlabs)OBS
+                Add one or more of the URLs below as a browser source to your (Streamlabs)OBS
             </p>
+
+            <table>
+                <tr>
+                    <td>
+                        All combined
+                    </td>
+                    <td>
+                        <pre>
+                            {{ absolute_url(path('bot_plot_index', { 'urlSecret': user.urlSecret }, false)) }}
+                        </pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Phoenix Wright Animations: !objection, !holdit, !takethat
+                    </td>
+                    <td>
+                        <pre>
+                            {{ absolute_url(path('bot_plot_phoenix', { 'urlSecret': user.urlSecret }, false)) }}
+                        </pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Pokedex Animation: !pokemon
+                    </td>
+                    <td>
+                        <pre>
+                            {{ absolute_url(path('bot_plot_pokedex', { 'urlSecret': user.urlSecret }, false)) }}
+                        </pre>
+                    </td>
+                </tr>
+            </table>
         {% endif %}
     </div>
     <div class="tab-pane fade" id="login_form" role="tabpanel" aria-labelledby="login-tab">

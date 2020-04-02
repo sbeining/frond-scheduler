@@ -20,6 +20,8 @@ Encore
      */
     .addEntry('app', './assets/js/app.js')
     .addEntry('botplot', './assets/js/botplot.js')
+    .addEntry('botplot_phoenix', './assets/js/botplot_phoenix.js')
+    .addEntry('botplot_pokedex', './assets/js/botplot_pokedex.js')
     .addStyleEntry('login', './assets/css/login.css')
     //.addEntry('page1', './assets/js/page1.js')
     //.addEntry('page2', './assets/js/page2.js')

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% block stylesheets %}
+      {{ encore_entry_link_tags('botplot_phoenix') }}
+    {% endblock %}
+
+    {% block javascripts %}
+      {{ encore_entry_script_tags('botplot_phoenix') }}
+    {% endblock %}
+  </head>
+  <body>
+    <div class="options" data-channel="{{ user.channel }}">
+      <!-- This just exists to pass options to the javascript -->
+    </div>
+
+    <div id="character" class="invisible">
+      <div id="objection" class="invisible faster"></div>
+      <div id="hold_it" class="invisible faster"></div>
+      <div id="take_that" class="invisible faster"></div>
+    </div>
+  </body>
+</html>

@@ -21,5 +21,24 @@ class BotPlotController extends AbstractController
             'user' => $user,
         ]);
     }
-}
 
+    /**
+     * @Route("/{urlSecret}/phoenix", name="bot_plot_phoenix")
+     */
+    public function phoenix(User $user): Response
+    {
+        return $this->render('bot_plot/phoenix.html.twig', [
+            'user' => $user,
+        ]);
+    }
+
+    /**
+     * @Route("/{urlSecret}/pokedex", name="bot_plot_pokedex")
+     */
+    public function pokedex(User $user): Response
+    {
+        return $this->render('bot_plot/pokedex.html.twig', [
+            'user' => $user,
+        ]);
+    }
+}
