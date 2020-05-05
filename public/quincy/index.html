@@ -1,0 +1,139 @@
+<html>
+ <head>
+
+<link rel="stylesheet" type="text/css" href="styles.css">
+ </head>
+
+  <body>
+    <div id="calculator">
+      <div id="counter">0</div>
+      <div id="bar">
+        <div id="innerBar" style="width:0px"></div>
+      </div>
+      <div id="numpad">
+          <div class="button" data-points="500000" onclick="addPoints(this)">Writing</div>
+          <div class="button" data-points="150000" onclick="addPoints(this)">Admin</div>
+          <div class="button" data-points="180000" onclick="addPoints(this)">Marketing</div>
+          <div class="button" data-points="200000" onclick="addPoints(this)">Meta</div>
+          <div class="button" data-points="150000" onclick="addPoints(this)">Health</div>
+          <div class="button" data-points="200000" onclick="addPoints(this)">Team</div>
+          <div class="button" data-points="150000" onclick="addPoints(this)">Art</div>
+          <div class="button" data-points="150000" onclick="addPoints(this)">R&D</div>
+          <div class="button" data-points="10000" onclick="addPoints(this)">Fun</div>
+      </div>
+      <div id="clear" onclick="clearPoints()"></div>
+    </div>
+
+<script>
+
+const pointGoal = 1000000
+
+let sum = 0;
+let currentPoints = 0
+
+let load = function() {
+  let tmpSum = parseInt(localStorage.getItem('sum'))
+  let tmpCurrentPoints = parseInt(localStorage.getItem('currentPoints'))
+
+  if (!Number.isNaN(tmpSum)) {
+    sum = tmpSum
+  }
+  if (!Number.isNaN(tmpCurrentPoints)) {
+    currentPoints = tmpCurrentPoints
+  }
+}
+
+let store = function() {
+  localStorage.setItem('sum', sum)
+  localStorage.setItem('currentPoints', currentPoints)
+}
+
+let addPoints = function(element) {
+  console.log(element.innerText)
+  let points = parseInt(element.dataset.points)
+  sum += points
+  currentPoints += points
+
+  updateCounter()
+  updateBar()
+  store()
+}
+
+let clearPoints = function() {
+  sum = 0
+  currentPoints = 0
+
+  updateCounter()
+  updateBar()
+  store()
+}
+
+let updateCounter = function() {
+  let counterElement = document.getElementById("counter")
+  counterElement.innerText = sum
+}
+
+let updateBar = function() {
+  let percent = currentPoints / pointGoal
+  let bar = document.getElementById("bar")
+  let innerBar = document.getElementById("innerBar")
+
+  let width = bar.offsetWidth * percent
+
+  if (percent < 1) {
+    innerBar.style.width = width + "px"
+  } else {
+    innerBar.style.width = bar.offsetWidth + "px"
+  }
+}
+
+let initilize = function() {
+  load()
+  updateCounter()
+  updateBar()
+}
+
+let keyboardControl = function(ev) {
+  var buttons = document.getElementsByClassName("button")
+
+  switch (ev.code) {
+    case "Numpad7":
+      addPoints(buttons[0])
+      break;
+    case "Numpad8":
+      addPoints(buttons[1])
+      break;
+    case "Numpad7":
+      addPoints(buttons[2])
+      break;
+    case "Numpad6":
+      addPoints(buttons[3])
+      break;
+    case "Numpad5":
+      addPoints(buttons[4])
+      break;
+    case "Numpad4":
+      addPoints(buttons[5])
+      break;
+    case "Numpad3":
+      addPoints(buttons[6])
+      break;
+    case "Numpad2":
+      addPoints(buttons[7])
+      break;
+    case "Numpad1":
+      addPoints(buttons[8])
+      break;
+    case "Numpad0":
+      clearPoints()
+      break;
+  }
+}
+
+window.onload = initilize
+document.onkeyup = keyboardControl
+
+</script>
+
+  </body>
+</html>
