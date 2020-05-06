@@ -27,7 +27,8 @@ class LiveController extends AbstractController
             'doulegg',
         ];
 
-        $clientId = 'q6batx0epp608isickayubi39itsckt';
+        $clientId = $_ENV['TWITCH_CLIENT_ID'];
+        $token = $_ENV['TWITCH_OAUTH_TOKEN'];
 
         $endpoint = 'https://api.twitch.tv/helix/streams';
 
@@ -39,6 +40,7 @@ class LiveController extends AbstractController
             'query' => $this->buildUserLoginsQuery($channels),
             'headers' => [
                 'Client-ID' => $clientId,
+                'Authorization' => "Bearer {$token}"
             ],
         ]);
 
