@@ -21,7 +21,7 @@ class LiveController extends AbstractController
         $channels = [
             'whoamattberry',
             'keldamist',
-            'bretmwxyz',
+            'edensthings',
             'aiyekara',
             'vinikyu',
             'doulegg',
