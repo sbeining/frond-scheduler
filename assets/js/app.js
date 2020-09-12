@@ -19,15 +19,10 @@ const moment = require('moment');
 global.moment = moment;
 const locale = window.navigator.userLanguage || window.navigator.language;
 moment.locale(locale);
-require('fullcalendar');
 require('tempusdominus-bootstrap-4');
 
 console.log('Hello Webpack Encore! Edit me in assets/js/app.js');
 
-import '@fullcalendar/core/main.css';
-import '@fullcalendar/daygrid/main.css';
-import '@fullcalendar/timegrid/main.css';
-import '@fullcalendar/bootstrap/main.css';
 import { Calendar } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
@@ -45,16 +40,16 @@ document.addEventListener('DOMContentLoaded', function() {
       locale: locale,
       firstDay: 1,
       plugins: [ dayGridPlugin, timeGridPlugin, bootstrap ],
-      defaultView: 'timeGridWeek',
+      initialView: 'timeGridWeek',
       allDaySlot: false,
       scrollTime: '10:00:00',
       themeSystem: 'bootstrap',
-      header: {
+      headerToolbar: {
         left: 'title',
         right: 'timeGridWeek,dayGridMonth prev,next'
       },
       events: '/event.json',
-      eventRender: function(info) {
+      eventContent: function(info) {
         const category = info.event._def.extendedProps.category
         const color = info.event.backgroundColor
         const selector = `#legend div[data-category-id=${category.id}]`
@@ -85,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
           $('#legend').append(categoryDiv)
         }
       },
-      datesRender: function(info) {
+      datesSet: function(info) {
         $('#legend').empty()
       }
     });
