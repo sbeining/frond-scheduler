@@ -5,12 +5,12 @@
  * (and its CSS file) in your base layout (base.html.twig).
  */
 
-// any CSS you require will output into a single css file (app.css in this case)
+// any CSS you import will output into a single css file (app.css in this case)
 require('../scss/global.scss');
 require('../css/app.css');
 require('@fortawesome/fontawesome-free/css/all.min.css');
 
-// Need jQuery? Install it with "yarn add jquery", then uncomment to require it.
+// Need jQuery? Install it with "yarn add jquery", then uncomment to import it.
 const $ = require('jquery');
 global.$ = $;
 require('bootstrap');
